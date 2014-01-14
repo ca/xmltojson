@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>XMLtoJSON</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body data-spy="scroll" data-target=".bs-sidenav">
+
+        <div class="container">
+            <h1>XMLtoJSON API Documentation</h1>
+            <div class="col-md-3">
+                <div class="bs-sidebar hidden-print affix" role="complementary">
+                    <ul class="nav bs-sidenav">
+                        <li><a href="#overview">Overview</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div id="overview">
+                    <h2>These are the rules:</h2>
+                    <div class="bs-example">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th>Request</th>
+                                <th>URL</th>
+                                <th>Parameters</th>
+                                <th>Response</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>GET</td>
+                                <td>/api</td>
+                                <td style="max-width:100px;"><code>?feed=&lt;feedUrl&gt;</code><br>feed accepts the url of an XML feed (feedUrl) with ampersands delimeted</td>
+                                <td style="max-width:100px;">Returns the original XML feed, translated into JSON</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                    <h5>Note: Ampersands can be delimeted in the url by <code>%26</code></h5>
+                    <br>
+                    <br>
+                    <h5>Example:</h5>
+                    <div class="bs-example">
+                          <table class="table">
+                            <tbody>
+                              <tr>
+                                <td>GET</td>
+                                <td><code>/api?feed=<br>
+                                    http://en.wikipedia.org/w/api.php<br>
+                                    ?format=xml<br>
+                                    %26action=query<br>
+                                    %26list=search<br>
+                                    %26srsearch=wikipedia<br>
+                                    %26srprop=timestamp</code></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <pre class="prettyprint">
+                              {"query-continue":<br>{"search":<br>{"sroffset":10}<br>},"query":{"searchinfo":{"totalhits":72594},"search":[{"ns":0,"title":"Wikipedia","timestamp":"2014-01-05T17:32:45Z"},{"ns":0,"title":"Wikip\u00e9dia","timestamp":"2013-08-25T17:14:38Z"},{"ns":0,"title":"Main Page","timestamp":"2013-09-27T03:10:17Z"},{"ns":0,"title":"English Wikipedia","timestamp":"2013-12-31T05:32:03Z"},{"ns":0,"title":"Routledge","timestamp":"2013-11-05T03:11:11Z"},{"ns":0,"title":"Censorship of Wikipedia","timestamp":"2013-12-08T20:36:13Z"},{"ns":0,"title":"Regency","timestamp":"2014-01-03T09:10:26Z"},{"ns":0,"title":"Wikipedia in culture","timestamp":"2013-12-29T15:10:45Z"},{"ns":0,"title":"Regent","timestamp":"2014-01-03T09:13:18Z"},{"ns":0,"title":"Peasant","timestamp":"2013-12-22T20:17:00Z"}]}}
+                          </pre>
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://code.jquery.com/jquery.js"></script>
+            <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+            <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst"></script>
+        </div>
+    </body>
+</html>
